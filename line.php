@@ -1,3 +1,6 @@
+<?php
+echo 'Current PHP version: ' . phpversion();
+?>
 <?php 
 	/*Get Data From POST Http Request*/
 	$datas = file_get_contents('php://input');
@@ -10,7 +13,7 @@
 
 	$messages = [];
 	$messages['replyToken'] = $replyToken;
-	$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
+	$messages['messages'][0] = getFormatTextMessage("ตอบมาแล้วจ้า");
 
 	$encodeJson = json_encode($messages);
 
