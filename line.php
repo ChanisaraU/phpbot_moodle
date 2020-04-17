@@ -10,10 +10,12 @@ echo 'Current PHP version: ' . phpversion();
 	file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
 
 	$replyToken = $deCode['events'][0]['replyToken'];
-
+	$response = file_get_contents('https://covid19.th-stat.com/api/open/today');
+	$response = json_decode($response);
+	$temp = $response->Confirmed;
 	$messages = [];
 	$messages['replyToken'] = $replyToken;
-	$messages['messages'][0] = getFormatTextMessage("ตอบมาแล้วจ้า");
+	$messages['messages'][0] = getFormatTextMessage($temp);
 
 	$encodeJson = json_encode($messages);
 
