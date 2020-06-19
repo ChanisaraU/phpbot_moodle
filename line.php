@@ -10,7 +10,7 @@ echo 'Current PHP version: ' . phpversion();
 	file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
 
 	$replyToken = $deCode['events'][0]['replyToken'];
-	$response = file_get_contents('http://35.188.46.183/lib/ajax/service.php?sesskey=PhQR61UiIl&info=core_fetch_notifications');
+	$response = file_get_contents('https://covid19.th-stat.com/api/open/today');
 	$response = json_decode($response);
 	$temp = $response->error;
 	$messages = [];
